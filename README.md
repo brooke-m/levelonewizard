@@ -57,6 +57,8 @@ the prototype:
 - **visual/ux updates:** It would be good to make it look and feel nicer, though
   this comes under 'hotwire and co' a bit. UX testing etc could follow and better
   inform the final flow.
+- **accessibility:** Ideally I'd go back through and get it up to accessible
+  standards or at least consistently use aria labels.
 
 ## known issues.
 
