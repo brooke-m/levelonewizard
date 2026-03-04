@@ -11,32 +11,34 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": signup.errors[:email].none?, "border-red-400 focus:outline-red-600": signup.errors[:email].any?}] %>
-  </div>
+<div class="bg-sky-100 p-12 rounded-md">
+  <% case signup.current_step %>
+  <% when 0 %>
+    <%= render "signups/signup_steps/email_form", form: form %>
+  <% when 1 %>
+    <%= render "signups/signup_steps/details_form", form: form %>
+  <% when 2 %>
+    <%= render "signups/signup_steps/address_form", form: form %>
+  <% when 3%>
+    <%= render "signups/signup_steps/comms_form", form: form %>
+  <% else %>
+    <%= render "signups/signup_steps/summary", form: form %>
+  <% end %>
 
-  <div class="my-5">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": signup.errors[:address].none?, "border-red-400 focus:outline-red-600": signup.errors[:address].any?}] %>
-  </div>
+ <%# back/next %>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": signup.errors[:name].none?, "border-red-400 focus:outline-red-600": signup.errors[:name].any?}] %>
-  </div>
+  <div>
+    <% if !signup.first_step? %>
+      <%= form.submit "Go Back" %>
+    <% end %>
 
-  <div class="my-5">
-    <%= form.label :current_step %>
-    <%= form.number_field :current_step, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": signup.errors[:current_step].none?, "border-red-400 focus:outline-red-600": signup.errors[:current_step].any?}] %>
-  </div>
+    <% if !signup.last_step? %>
+      <%= form.submit "Update Signup" %>
+    <% end %>
 
-  <div class="my-5 flex items-center gap-2">
-    <%= form.label :comms_preference %>
-    <%= form.checkbox :comms_preference, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": signup.errors[:comms_preference].none?, "border-red-400 focus:outline-red-600": signup.errors[:comms_preference].any?}] %>
+   <% if signup.last_step? %>
+      <%= form.submit "Confirm" %>
+   <% end %>
   </div>
-
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+</div>
 <% end %>

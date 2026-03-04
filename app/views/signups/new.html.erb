@@ -1,9 +1,22 @@
 <% content_for :title, "New signup" %>
 
 <div class="md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New signup</h1>
 
-  <%= render "form", signup: @signup %>
+  <%= form_with(model: @signup, class: "contents") do |form| %>
+  <% if @signup.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this signup from being saved:</h2>
 
-  <%= link_to "Back to signups", signups_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <ul class="list-disc ml-6">
+        <% @signup.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="bg-sky-100 p-8 rounded-md">
+    <%= render "signups/signup_steps/email_form", form: form %>
+    <%= form.submit "Let's go!" %>
+  </div>
+  <% end %>
 </div>

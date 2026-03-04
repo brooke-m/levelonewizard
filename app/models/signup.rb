@@ -1,5 +1,5 @@
 class Signup < ApplicationRecord
-  validates :email, uniqueness: true, on: :create
+  validates :email, presence: true, uniqueness: true, on: :create
   validate :valid_step_transition, on: [ :create, :update ]
 
   ###
