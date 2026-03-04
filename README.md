@@ -10,7 +10,7 @@ The idea here was that `Signup` is an record that gets added to with each step
 and tracks its own progress, and then a completed signup would be translated
 into a `User` (which isn't in scope but you can check the schema for reference re: the shape of a User) model which would theoretically be used in the actual application.
 
-A Signup is created with (and indexed by) the supplied email, and the other
+A Signup is created with (and indexed on) the supplied email, and the other
 fields either have defaults or can be temporarily nil. Styled with tailwind,
 step navigation done as a series of edits/patches with conditional rendering:
 the edit view displays different fields depending on the current signup step.
