@@ -1,4 +1,4 @@
-<% content_for :title, "New signup" %>
+<% content_for :title, "Sign Up" %>
 
 <div class="md:w-2/3 w-full">
 
@@ -16,7 +16,7 @@
   <% end %>
   <div class="bg-sky-100 p-8 rounded-md">
     <%= render "signups/signup_steps/email_form", form: form %>
-    <%= form.submit "Let's go!" %>
+    <%= form.submit "Let's go!", class: "mt-8 p-4 text-white bg-sky-600 rounded-lg"%>
   </div>
   <% end %>
 </div>

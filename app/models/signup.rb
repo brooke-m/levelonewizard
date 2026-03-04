@@ -9,7 +9,7 @@ class Signup < ApplicationRecord
   # 2 - name has been added, enter address
   # 3 - address has been added, check comms preference
   # 4 - comms preference has been added, check summary
-  # 5 - summary confirmed, signup would fall under a 'complete' scope here
+  # 5 - post form? summary confirmed, signup would fall under a 'complete' scope here
   # (if time to refactor, an enum on top of the saved int would be nicer)
   ###
 
@@ -22,7 +22,7 @@ class Signup < ApplicationRecord
   end
 
   def last_step?
-    current_step == 5
+    current_step == 4
   end
 
   def increment_signup_step

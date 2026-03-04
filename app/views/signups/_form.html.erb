@@ -19,7 +19,7 @@
     <%= render "signups/signup_steps/details_form", form: form %>
   <% when 2 %>
     <%= render "signups/signup_steps/address_form", form: form %>
-  <% when 3%>
+  <% when 3 %>
     <%= render "signups/signup_steps/comms_form", form: form %>
   <% else %>
     <%= render "signups/signup_steps/summary", form: form %>
@@ -28,16 +28,16 @@
  <%# back/next %>
 
   <div>
-    <% if !signup.first_step? %>
-      <%= form.submit "Go Back" %>
+    <% if (!signup.first_step? && !signup.last_step?) %>
+      <%= form.submit "Go Back", class: "mt-8 px-4 py-2 bg-white text-sky-600 border-1 border-sky-600 rounded-lg" %>
     <% end %>
 
     <% if !signup.last_step? %>
-      <%= form.submit "Update Signup" %>
+      <%= form.submit "Next", class: "mt-8 px-4 py-2 text-white bg-sky-600 rounded-lg"%>
     <% end %>
 
    <% if signup.last_step? %>
-      <%= form.submit "Confirm" %>
+      <%= link_to "looks good!", signups_path, class: "ml-2 mt-2 px-4 py-2 text-white bg-sky-600 rounded-lg" %>
    <% end %>
   </div>
 </div>

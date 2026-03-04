@@ -1,4 +1,6 @@
-  <div">
-    <%= form.label :email, "Email:" %>
+  <div>
+    <p class="pb-4"> Hello! Let's get ready to sign up. What's your email address? </p>
+
+    <%= form.label :email, "Email:", class: "hidden" %>
     <%= form.email_field :email, required: true, class: ["bg-white block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": form.object.errors[:email].none?, "border-red-400 focus:outline-red-600": form.object.errors[:email].any?}] %>
   </div>

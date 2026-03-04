@@ -1,25 +1,21 @@
-  <div>
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= @signup.email %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= @signup.address %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= @signup.name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Current step:</strong>
-    <%= @signup.current_step %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Comms preference:</strong>
-    <%= @signup.comms_preference? ? "Yes" : "No" %>
-  </div>
 
-  <div>
-    <%= link_to "wait no go back", edit_signup_path(@signup)%>
-    <%= link_to "looks good!", signups_path %>
-</div>
+    <div class="bg-white rounded-lg p-4 m-2">
+      <strong class="block font-medium mb-1">Email:</strong>
+      <%= @signup.email %>
+    </div>
+    <div class="bg-white rounded-lg p-4 m-2">
+      <strong class="block font-medium mb-1">Address:</strong>
+      <%= @signup.address %>
+    </div>
+    <div class="bg-white rounded-lg p-4 m-2">
+      <strong class="block font-medium mb-1">Name:</strong>
+      <%= @signup.name %>
+    </div>
+    <div class="bg-white rounded-lg p-4 m-2">
+      <strong class="block font-medium mb-1">Current step:</strong>
+      <%= @signup.current_step %>
+    </div>
+    <div class="bg-white rounded-lg p-4 m-2">
+      <strong class="block font-medium mb-1">Comms preference:</strong>
+      <%= @signup.comms_preference? ? "Yes" : "No" %>
+    </div>

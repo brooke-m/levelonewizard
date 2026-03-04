@@ -1,4 +1,6 @@
 <div>
-    <%= form.label :comms_preference, "Can we email you about cool stuff?" %>
-    <%= form.checkbox :comms_preference, required: true %>
+    <p class="pb-4"> We'd love to email you about cool stuff via the provided email. Is that cool?</p>
+
+    <%= form.label :comms_preference, "Yes, please email about cool stuff!" %>
+    <%= form.checkbox :comms_preference %>
 </div>

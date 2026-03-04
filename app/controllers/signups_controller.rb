@@ -59,7 +59,7 @@ class SignupsController < ApplicationController
   def update
     respond_to do |format|
       if @signup.update(signup_params)
-        if params[:commit] == "Update Signup"
+        if params[:commit] == "Next"
           @signup.increment_signup_step unless @signup.last_step?
           format.html { redirect_to edit_signup_path(@signup), notice: "Signup was successfully updated.", status: :see_other }
           # format.json { render :show, status: :ok, location: @signup }
