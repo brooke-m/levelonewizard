@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_04_140125) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_04_142046) do
   create_table "signups", force: :cascade do |t|
     t.string "address"
     t.boolean "comms_preference"
     t.datetime "created_at", null: false
-    t.integer "current_step", default: 0
+    t.integer "current_step", default: 0, null: false
     t.string "email", null: false
     t.string "name"
     t.datetime "updated_at", null: false

@@ -1,15 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  address: MyString
-  name: MyString
+new_signup:
+  email: New@test.com
   current_step: 1
-  comms_preference: false
 
-two:
-  email: MyString
-  address: MyString
-  name: MyString
-  current_step: 1
-  comms_preference: false
+complete_signup:
+  email: Complete@test.com
+  address: 2 Test Street
+  name: Complete Signup
+  current_step: 5
+  comms_preference: true
