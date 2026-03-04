@@ -38,4 +38,12 @@ class SignupTest < ActiveSupport::TestCase
     signup.decrement_signup_step
     assert_equal signup.current_step, 0
   end
+
+  test "doesn't increment to an invalid step" do
+    signup = signups(:new_signup)
+    signup.increment_signup_step
+
+    assert_not signup.valid?
+    assert_not signup.save
+  end
 end
