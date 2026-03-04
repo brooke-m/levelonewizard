@@ -20,6 +20,11 @@ class SignupsController < ApplicationController
   end
 
   ###
+  # heads up: json format is commented out in these controller methods because
+  # it came in with the scaffold and i wanted to focus in on the html.
+  #
+  #
+  # initial thoughts on create:
   # using the web form, we will be posting an initial signup and then editing it.
   # we still want to be able to take in complete signups in case there are alt
   # entry points (e.g. passed in from admin/third party) and we don't jump
