@@ -1,0 +1,22 @@
+<div id="<%= dom_id signup %>" class="w-full sm:w-auto my-5 space-y-5">
+  <div>
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= signup.email %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= signup.address %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= signup.name %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Current step:</strong>
+    <%= signup.current_step %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Comms preference:</strong>
+    <%= signup.comms_preference? ? "Yes" : "No" %>
+  </div>
+</div>
