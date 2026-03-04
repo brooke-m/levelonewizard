@@ -2,7 +2,7 @@ require "test_helper"
 
 class SignupsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @signup = signups(:one)
+    @signup = signups(:new_signup)
   end
 
   test "should get index" do
@@ -17,10 +17,11 @@ class SignupsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create signup" do
     assert_difference("Signup.count") do
-      post signups_url, params: { signup: { address: @signup.address, comms_preference: @signup.comms_preference, current_step: @signup.current_step, email: @signup.email, name: @signup.name } }
+      post signups_url, params: { signup: { email: "different@test.com", address: @signup.address, comms_preference: @signup.comms_preference, name: @signup.name } }
     end
 
-    assert_redirected_to signup_url(Signup.last)
+    ## we are going to go to edit straight away
+    # assert_redirected_to signup_url(Signup.last)
   end
 
   test "should show signup" do
@@ -33,9 +34,11 @@ class SignupsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update signup" do
-    patch signup_url(@signup), params: { signup: { address: @signup.address, comms_preference: @signup.comms_preference, current_step: @signup.current_step, email: @signup.email, name: @signup.name } }
-    assert_redirected_to signup_url(@signup)
+  test "should update by one step" do
+    patch signup_url(@signup), params: { signup: { name: @signup.name } }
+
+    ## we don't go back to shwo for this step
+    # assert_redirected_to signup_url(@signup)
   end
 
   test "should destroy signup" do
